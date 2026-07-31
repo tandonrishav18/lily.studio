@@ -141,6 +141,29 @@ button {
   outline: none;
 }
 
+@media (max-width: 640px) {
+  .lily-nav {
+    padding: 6px 12px;
+  }
+
+  .lily-nav__actions {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .lily-nav__social {
+    width: clamp(30px, 8vw, 36px);
+    min-width: 36px;
+    padding: 0;
+  }
+
+  .lily-nav__social svg {
+    width: 70%;
+    height: 70%;
+  }
+}
+
 .lily-nav__email:hover,
 .lily-nav__email:focus-visible {
   background: rgba(217, 47, 30, 0.12);
