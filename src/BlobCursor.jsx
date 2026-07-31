@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, useState } from 'react';
 import gsap from 'gsap';
 import './BlobCursor.css';
 
@@ -28,6 +28,7 @@ export default function BlobCursor({
 }) {
   const containerRef = useRef(null);
   const blobsRef = useRef([]);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   const updateOffset = useCallback(() => {
     if (!containerRef.current) return { left: 0, top: 0 };
@@ -64,17 +65,27 @@ export default function BlobCursor({
   );
 
   useEffect(() => {
-    const onResize = () => updateOffset();
-    window.addEventListener('resize', onResize);
+    const updateDeviceMode = () => {
+      const finePointer = window.matchMedia('(pointer: fine)').matches;
+      const hoverCapable = window.matchMedia('(hover: hover)').matches;
+      setIsDesktop(finePointer && hoverCapable);
+    };
+
+    updateDeviceMode();
+    window.addEventListener('resize', updateDeviceMode);
     window.addEventListener('mousemove', handleMove);
     window.addEventListener('touchmove', handleMove, { passive: true });
 
     return () => {
-      window.removeEventListener('resize', onResize);
+      window.removeEventListener('resize', updateDeviceMode);
       window.removeEventListener('mousemove', handleMove);
       window.removeEventListener('touchmove', handleMove);
     };
   }, [handleMove, updateOffset]);
+
+  if (!isDesktop) {
+    return null;
+  }
 
   return (
     <div
