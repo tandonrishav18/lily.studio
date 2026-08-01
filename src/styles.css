@@ -61,6 +61,7 @@ button {
   max-width: clamp(780px, 92%, 1080px);
   width: 100%;
   min-width: 0;
+  box-sizing: border-box;
   /* Accessibility & base */
   height: clamp(42px, 4.2vw, 52px);
   display: flex;
@@ -80,6 +81,7 @@ button {
   -webkit-backdrop-filter: blur(20px) saturate(145%);
   backdrop-filter: blur(20px) saturate(145%);
   will-change: backdrop-filter, transform;
+  overflow: hidden;
 }
 
 @supports not ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
@@ -171,11 +173,13 @@ button {
     flex-wrap: wrap;
     justify-content: center;
     min-width: 0;
+    width: 100%;
   }
 
   .lily-nav__action {
-    flex: 1 1 auto;
+    flex: 1 1 0;
     min-width: 0;
+    max-width: calc(100% - 52px);
   }
 
   .lily-nav__social {
