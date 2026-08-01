@@ -60,6 +60,7 @@ button {
   transform: translateX(-50%);
   max-width: clamp(780px, 92%, 1080px);
   width: 100%;
+  min-width: 0;
   /* Accessibility & base */
   height: clamp(42px, 4.2vw, 52px);
   display: flex;
@@ -112,6 +113,8 @@ button {
   display: flex;
   align-items: center;
   gap: clamp(10px, 1vw, 14px);
+  flex-shrink: 0;
+  min-width: 0;
 }
 
 .lily-nav__action,
@@ -151,21 +154,30 @@ button {
   outline: none;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 740px) {
   .lily-nav {
     padding: 6px 12px;
+    justify-content: space-between;
+    gap: 8px;
   }
 
   .lily-nav__actions {
     gap: 8px;
     flex-wrap: wrap;
     justify-content: center;
+    min-width: 0;
+  }
+
+  .lily-nav__action {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .lily-nav__social {
     width: clamp(30px, 8vw, 36px);
     min-width: 36px;
     padding: 0;
+    flex-shrink: 0;
   }
 
   .lily-nav__social svg {
