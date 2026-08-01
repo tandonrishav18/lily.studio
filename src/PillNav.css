@@ -4,16 +4,26 @@
   display: flex;
   align-items: center;
   padding: 6px 14px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(10, 12, 18, 0.55);
+  background-clip: padding-box;
+  -webkit-background-clip: padding-box;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
   position: fixed;
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.34);
+}
+
+@supports not ((-webkit-backdrop-filter: blur(18px)) or (backdrop-filter: blur(18px))) {
+  .pill-nav {
+    background: rgba(10, 12, 18, 0.88);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.38);
+  }
 }
 
 .pill-nav-items {
