@@ -81,7 +81,6 @@ button {
   -webkit-backdrop-filter: blur(20px) saturate(145%);
   backdrop-filter: blur(20px) saturate(145%);
   will-change: backdrop-filter, transform;
-  overflow: hidden;
 }
 
 @supports not ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
@@ -171,14 +170,15 @@ button {
 
   .lily-nav__actions {
     gap: 8px;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     min-width: 0;
-    width: 100%;
+    width: auto;
+    overflow: hidden;
   }
 
   .lily-nav__action {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     min-width: 0;
     max-width: calc(100% - 56px);
   }
@@ -187,7 +187,8 @@ button {
     width: clamp(30px, 8vw, 36px);
     min-width: 36px;
     padding: 0;
-    flex-shrink: 0;
+    flex: 0 0 auto;
+    margin-left: auto;
   }
 
   .lily-nav__social svg {
