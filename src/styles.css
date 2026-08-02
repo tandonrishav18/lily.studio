@@ -289,6 +289,16 @@ button {
   white-space: nowrap;
 }
 
+.lily-footer__brand a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.lily-footer__brand a:hover,
+.lily-footer__brand a:focus-visible {
+  text-decoration: none;
+}
+
 .lily-footer__brand span {
   color: #d92f1e;
 }
@@ -317,7 +327,7 @@ button {
 .lily-footer__phones a:hover,
 .lily-footer__phones a:focus-visible {
   color: #d92f1e;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .lily-footer__social {

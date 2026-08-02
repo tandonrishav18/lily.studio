@@ -46,7 +46,9 @@ export default function App() {
 
       <footer id="contact" className="lily-footer" role="contentinfo">
         <div className="lily-footer__inner">
-          <div className="lily-footer__brand">LIL<span>Y</span>.studio</div>
+          <div className="lily-footer__brand">
+            <a href="#root" aria-label="Back to top">LIL<span>Y</span>.studio</a>
+          </div>
 
           <div className="lily-footer__phones" aria-label="Phone numbers">
             <span className="lily-footer__label">Phone</span>
